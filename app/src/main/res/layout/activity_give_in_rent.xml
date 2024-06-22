@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background"
+    android:padding="24dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_layout_name"
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+    android:layout_width="match_parent"
+    android:layout_below="@id/card_view_time"
+    android:layout_marginTop="12dp"
+    android:layout_height="75dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edit_text__name"
+        android:layout_width="match_parent"
+        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+android:id="@+id/text_phone_layout"
+style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+android:layout_width="match_parent"
+android:layout_below="@id/text_layout_name"
+android:layout_marginTop="12dp"
+android:layout_height="75dp">
+
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/edit_text_phone_no"
+    android:layout_width="match_parent"
+    android:inputType="number"
+    android:layout_height="wrap_content"
+    android:hint="Phone"/>
+
+</com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_hall_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_below="@id/text_layout_name"
+        android:layout_marginTop="12dp"
+        android:layout_height="75dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_hall"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:hint="Hall"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_give_take_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_below="@id/text_layout_name"
+        android:layout_marginTop="12dp"
+        android:layout_height="75dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_give_take"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:hint="Give in rent/Take in rent/Buy/Sell"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_submit_give_rent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="35dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_note"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/blue_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_submit_give_rent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="23dp"
+            android:layout_marginTop="20dp"
+            android:text="Please delete your entries in case of unavailabilty to avoid confusion!"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+    <Button
+        android:id="@+id/button_delete_rent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:text="Delete all entries"/>
+
+
+
+</LinearLayout>

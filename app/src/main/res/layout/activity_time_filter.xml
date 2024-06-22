@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_740"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="07:40 - 08:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_840"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_740"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="08:40 - 09:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_940"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_840"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="09:40 - 10:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1040"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_940"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="10:40 - 11:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1140"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1040"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="11:40 - 12:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1240"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1140"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="12:40 - 13:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1340"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1240"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="13:40 - 14:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1440"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1340"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="14:40 - 15:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1540"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1440"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="15:40 - 16:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1640"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1540"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="16:40 - 17:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1740"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1640"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="17:40 - 18:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1840"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1740"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="18:40 - 19:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_1940"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1840"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="19:40 - 20:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_2040"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_1940"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="20:40 - 21:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_2140"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_2040"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="21:40 - 22:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_2240"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_2140"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="22:40 - 23:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/time_2340"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/time_2240"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="@color/blue_500"
+            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:text="23:40 - 24:00"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+</ScrollView>

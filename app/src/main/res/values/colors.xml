@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+   <color name="blue_200">#80CBA2</color>
+    <color name="blue_300">#40748C</color>
+    <color name="blue_400">#80DEEA</color>
+    <color name="blue_500">#48AFA0</color>
+    <color name="blue_600">#90CAF9</color>
+    <color name="grey">#849FB5</color>
+    <color name="greenTop">#57D35C</color>
+    <color name="backgroundChat">#C5DAC6</color>
+</resources>

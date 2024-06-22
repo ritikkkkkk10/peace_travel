@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PeaceTravel" parent="Theme.Material3.DynamicColors.Light">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/blue_300</item>
+        <item name="colorSecondary">@color/blue_200</item>
+
+        <item name="android:colorBackground">@color/blue_400</item>
+    </style>
+
+
+    <style name="Theme.PeaceTravel" parent="Base.Theme.PeaceTravel" />
+</resources>

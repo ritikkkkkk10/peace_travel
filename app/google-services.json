@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "862690188950",
+    "firebase_url": "https://peace-travel-default-rtdb.firebaseio.com",
+    "project_id": "peace-travel",
+    "storage_bucket": "peace-travel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862690188950:android:045fcefccfd689f23cecb7",
+        "android_client_info": {
+          "package_name": "com.ritikprajapati.peacetravel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYBq51D9HP4dXmP7ljNeXWZYJSjtuTZZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

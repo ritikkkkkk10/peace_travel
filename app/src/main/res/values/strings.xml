@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Peace Travel</string>
+    <string name="spinner_prompt">Select an option</string>
+    <string-array name="spinner_options">
+        <item>Main Building</item>
+        <item>Nalanda Classroom Complex</item>
+        <item>Vikramshila</item>
+        <item>Gymkhana</item>
+        <item>Tech Market</item>
+        <item>ABV Hall</item>
+        <item>Azad Hall</item>
+        <item>BC Roy Hall</item>
+        <item>Gokhale Hall</item>
+        <item>HJB Hall</item>
+        <item>JCB Hall</item>
+        <item>Nehru Hall</item>
+        <item>LBS hall</item>
+        <item>LLR Hall</item>
+        <item>MMM Hall</item>
+        <item>MS Hall</item>
+        <item>MT Hall</item>
+        <item>SNVH Hall</item>
+        <item>Patel Hall</item>
+        <item>RK Hall</item>
+        <item>RLB Hall</item>
+        <item>RP Hall</item>
+        <item>SAM Hall</item>
+        <item>SBP Hall</item>
+        <item>SNIG Hall</item>
+        <item>VS Hall</item>
+        <item>BRH</item>
+        <item>KGP Junction</item>
+        <item>Hijli Junction</item>
+        <item>Out Of Campus</item>
+        <item>Gymkhana</item>
+    </string-array>
+
+    <string-array name="spinner_options_time">
+        <item>07.40-08.00</item>
+        <item>08.40-09.00</item>
+        <item>09.40-10.00</item>
+        <item>10.40-11.00</item>
+        <item>11.40-12.00</item>
+        <item>12.40-13.00</item>
+        <item>13.40-14.00</item>
+        <item>14.40-15.00</item>
+        <item>15.40-16:00</item>
+        <item>16.40-17.00</item>
+        <item>17.40-18.00</item>
+        <item>18.40-19.00</item>
+        <item>19.40-20.00</item>
+        <item>20.40-21.00</item>
+        <item>21.40-22.00</item>
+        <item>22.40-23.00</item>
+        <item>23.40-24.00</item>
+    </string-array>
+
+</resources>
