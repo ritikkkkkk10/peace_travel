@@ -30,6 +30,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AlertDialog.Builder(this)
+            .setTitle("Note!")
+            .setMessage("Before texting anyone, enter your data as well, else the other user won't be able to see your text!")
+            .setNegativeButton("Okay") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+        true
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -109,12 +119,38 @@ class MainActivity : AppCompatActivity() {
                     .show()
                 true
             }
+            R.id.email -> {
+                val userId = getUidFromSharedPreferences() ?: ""
+                fetchUserEmail(userId) { email ->
+                    AlertDialog.Builder(this)
+                        .setTitle("You are logged in as:")
+                        .setMessage(email)
+                        .setNegativeButton("Okay") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+                true
+            }
 
             else -> {
                 super.onOptionsItemSelected(item)
             }
         }
         return menuClickHandled
+    }
+
+    private fun fetchUserEmail(userId: String, callback: (String) -> Unit) {
+        database.child("newUsers").child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val email = snapshot.child("email").getValue(String::class.java) ?: ""
+                callback(email)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                callback("")
+            }
+        })
     }
 
     private fun deleteData(uid: String) {

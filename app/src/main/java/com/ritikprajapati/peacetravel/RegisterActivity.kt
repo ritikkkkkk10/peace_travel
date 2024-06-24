@@ -52,6 +52,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun registerUser(txtPassword: String, txtPhone: String, txtEmail: String) {
         auth!!.createUserWithEmailAndPassword(txtEmail, txtPassword)
             .addOnCompleteListener(this@RegisterActivity) { task ->
+                //hello
                 if (task.isSuccessful) {
                     val currentUser = auth!!.currentUser
                     val userUid = currentUser?.uid
