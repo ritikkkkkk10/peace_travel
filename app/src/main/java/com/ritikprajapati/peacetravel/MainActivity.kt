@@ -132,6 +132,27 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
+            R.id.privacy_policy -> {
+                startActivity(Intent(this, PrivacyPolicyActivity::class.java))
+                true
+            }
+            R.id.delete_account -> {
+                AlertDialog.Builder(this)
+                    .setTitle("Warning!")
+                    .setMessage("Are you sure you want to delete your account? This action cannot be undone.")
+                    .setPositiveButton("Yes") { _, _ ->
+                        val uid = getUidFromSharedPreferences()
+                        if (uid != null) {
+                            deleteData(uid)
+                            deleteUserAccount()
+                        }
+                    }
+                    .setNegativeButton("No") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+                true
+            }
 
             else -> {
                 super.onOptionsItemSelected(item)
@@ -152,6 +173,20 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun deleteUserAccount() {
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.delete()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Snackbar.make(binding.root, "Account deleted successfully", Snackbar.LENGTH_SHORT).show()
+                startActivity(Intent(this, StartActivity::class.java))
+                finish()
+            } else {
+                Snackbar.make(binding.root, "Failed to delete account: ${task.exception?.message}", Snackbar.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     private fun deleteData(uid: String) {
         val query: Query = database.child("users").orderByChild("id").equalTo(uid)

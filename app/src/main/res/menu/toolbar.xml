@@ -11,4 +11,10 @@
 
     <item android:id="@+id/email"
         android:title="Logged in as:"/>
+
+    <item android:id="@+id/privacy_policy"
+        android:title="Privacy Policy"/>
+
+    <item android:id="@+id/delete_account"
+        android:title="Delete Account"/>
 </menu>

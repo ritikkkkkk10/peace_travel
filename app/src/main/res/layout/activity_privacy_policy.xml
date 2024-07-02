@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/privacy_policy_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/section_introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Introduction"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peace Travel is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your information when you use our mobile application."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_info_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Information We Collect"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Information: Optional phone number provided by users.\n\nLocation Data: Current location and destination for travel coordination.\n\nChat Data: Messages exchanged within the app.\n\nCycle Market Data: Information related to buying, selling, and renting cycles."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_use_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. How We Use Your Information"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We do not use your data for any purpose other than providing and improving our services. Specifically, we use your information to:\n\nConnect Users: Facilitate ride-sharing by matching users with similar travel routes.\n\nCommunication: Allow users to chat within the app and optionally contact each other via phone.\n\nCycle Transactions: Enable users to buy, sell, and rent cycles."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_data_sharing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Data Sharing"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We do not share your information with third parties. Your data is used solely within the Peace Travel app to facilitate its core functionalities."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_data_security"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Data Security"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We use industry-standard security measures to protect your data. However, no method of transmission over the internet or electronic storage is 100% secure."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_choices_rights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. Your Choices and Rights"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Access and Deletion: You can access, update, and delete your personal information through the app settings. When you delete your data, it will be permanently removed from our systems.\n\nOptional Phone Number: Providing your phone number is optional. You can choose to rely solely on the in-app chat."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_policy_changes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. Changes to This Policy"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_contact_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. Contact Us"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="If you have any questions about this Privacy Policy, please contact us at peacetravel001@gmail.com."
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/section_children_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Children Privacy Policies"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Our app does not violate any child privacy policy."
+            android:paddingTop="4dp"/>
+
+    </LinearLayout>
+</ScrollView>
