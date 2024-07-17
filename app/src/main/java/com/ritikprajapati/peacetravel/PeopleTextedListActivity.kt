@@ -42,8 +42,6 @@ class PeopleTextedListActivity : AppCompatActivity() {
         val currentDate2 = "$year-$month-$day"
 
         Log.d("PeopleTextedListActivity", "Fetching data from Firebase")
-
-        fetchUsersByTimeRange(currentDate2)
     }
 
     private fun fetchUsersByTimeRange(dateToday: String) {
@@ -73,14 +71,23 @@ class PeopleTextedListActivity : AppCompatActivity() {
                             chatRooms.child(chatRoomId).addListenerForSingleValueEvent(object : ValueEventListener {
                                 override fun onDataChange(chatSnapshot: DataSnapshot) {
                                     if (chatSnapshot.exists()) {
+                                        var unreadCount = 0
+
                                         for (chat in chatSnapshot.children) {
-                                            val chatDate = chat.child("date").getValue(String::class.java)
-                                            if (chatDate == dateToday) {
-                                                userList.add(it)
-                                                userAdapter.notifyDataSetChanged()
-                                                break
+                                            val seenByMe = chat.child("seenByMe").getValue(Boolean::class.java) ?: true
+                                            val senderUid = chat.child("senderUid").getValue(String::class.java)
+
+                                            if (!seenByMe && senderUid != currentUserId) {
+                                                unreadCount++
                                             }
                                         }
+
+                                        // Update user with unread message count
+                                        it.unreadMessagesCount = unreadCount
+                                        Log.d("PeopleTextedListActivity", "User ${it.id} has $unreadCount unread messages")
+
+                                        userList.add(it)
+                                        userAdapter.notifyDataSetChanged()
                                     }
                                 }
 
@@ -112,6 +119,20 @@ class PeopleTextedListActivity : AppCompatActivity() {
             userId2 + userId1
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val currentDate = "$year-$month-$day"
+
+        Log.d("PeopleTextedListActivity", "Refreshing data for current date: $currentDate")
+        fetchUsersByTimeRange(currentDate)
+    }
+
 
     private fun showEmptyScreenMessage(message: String) {
         Snackbar.make(

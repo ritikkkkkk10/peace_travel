@@ -8,5 +8,6 @@ User(
     val toLocation: String = "",
     val time: String = "",
     val date: String = "",
-    val id: String = ""
+    val id: String = "",
+    var unreadMessagesCount: Int = 0 // Add this property
 )

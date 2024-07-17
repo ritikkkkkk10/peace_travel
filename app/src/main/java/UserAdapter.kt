@@ -25,6 +25,7 @@ class UserAdapter (
         val fromLocation: TextView = itemView.findViewById(R.id.text_view_from_location)
         val toLocation: TextView = itemView.findViewById(R.id.text_view_to_location)
         val time: TextView = itemView.findViewById(R.id.text_view_time)
+        val unreadMessages: TextView = itemView.findViewById(R.id.UnReadsCount)
         var userIdphone = getUidFromSharedPreferences() ?: ""
 
 
@@ -43,6 +44,14 @@ class UserAdapter (
             // Disable click listener
 //            itemView.isClickable = false
 //            itemView.isFocusable = false
+
+            // Set unread messages count
+            if (user.unreadMessagesCount > 0) {
+                unreadMessages.visibility = View.VISIBLE
+                unreadMessages.text = user.unreadMessagesCount.toString()
+            } else {
+                unreadMessages.visibility = View.GONE
+            }
         }
 
 
