@@ -86,7 +86,7 @@ class ChatActivity : AppCompatActivity() {
                 val message = snapshot.getValue(Message::class.java)
                 val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid
 
-                if (message != null && currentUserUid != null) {
+                if (message != null && currentUserUid != null && currentDateChat == message.date) {
                     // Set isSent based on the senderUid
                     message.isSent = message.senderUid == currentUserUid
 
