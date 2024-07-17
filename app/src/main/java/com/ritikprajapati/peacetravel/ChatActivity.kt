@@ -16,6 +16,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.Calendar
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
+import android.app.PendingIntent
+import android.content.Intent
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class ChatActivity : AppCompatActivity() {
 
