@@ -5,8 +5,9 @@ data class Message(
     val content: String = "",
     val senderUid: String = "",
     val date: String = "",
-    var isSent: Boolean = false // true if the message is sent by the user, false if received
+    var isSent: Boolean = false, // true if the message is sent by the user, false if received
+    var SeenByMe: Boolean = false
 
 ) : Serializable {
-    constructor() : this ("", "","",false)
+    constructor() : this ("", "","",false, false)
 }

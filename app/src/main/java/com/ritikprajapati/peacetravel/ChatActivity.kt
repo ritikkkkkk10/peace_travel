@@ -23,6 +23,7 @@ import android.app.PendingIntent
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import kotlin.properties.Delegates
 
 class ChatActivity : AppCompatActivity() {
 
@@ -34,6 +35,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var chatRoomId: String
     private lateinit var userName: String
     private lateinit var databaseReference: DatabaseReference
+    private var onScreen by Delegates.notNull<Boolean>()
 
     val calendar = Calendar.getInstance()
     val year = calendar.get(Calendar.YEAR)
@@ -87,6 +89,14 @@ class ChatActivity : AppCompatActivity() {
                 if (message != null && currentUserUid != null) {
                     // Set isSent based on the senderUid
                     message.isSent = message.senderUid == currentUserUid
+
+                    // Update seenByMe if the message is not sent by the current user
+                    if (message.senderUid != currentUserUid && onScreen) {
+                        message.SeenByMe = true
+                        // Update the message in the database
+                        snapshot.ref.child("seenByMe").setValue(true)
+
+                    }
                     messageList.add(message)
                     chatAdapter.notifyItemInserted(messageList.size - 1)
                     recyclerView.scrollToPosition(messageList.size - 1)
@@ -113,7 +123,7 @@ class ChatActivity : AppCompatActivity() {
 
         val messageId = databaseReference.push().key ?: return
 
-        val message = Message(content = messageText, senderUid = currentUserUid, currentDateChat)
+        val message = Message(content = messageText, senderUid = currentUserUid, date = currentDateChat, SeenByMe = false)
 
         databaseReference.child(messageId).setValue(message).addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -127,5 +137,17 @@ class ChatActivity : AppCompatActivity() {
     private fun getUidFromSharedPreferences(): String? {
         val sharedPref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         return sharedPref.getString("UID", null)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        onScreen = false
+        Log.e("ChatActivity", "Failed to send message: i am in pause}")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        onScreen = true
+        Log.e("ChatActivity", "Failed to send message: i am in start")
     }
 }

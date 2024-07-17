@@ -120,4 +120,5 @@ class PeopleTextedListActivity : AppCompatActivity() {
             Snackbar.LENGTH_SHORT
         ).show()
     }
+
 }
