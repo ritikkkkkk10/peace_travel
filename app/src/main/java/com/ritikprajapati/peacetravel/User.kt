@@ -2,7 +2,7 @@ package com.ritikprajapati.peacetravel
 
 data class
 User(
-    val userName: String = "",
+    var userName: String = "",
     val phoneNumber: String = "",
     val fromLocation: String = "",
     val toLocation: String = "",

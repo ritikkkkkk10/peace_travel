@@ -86,6 +86,7 @@ class PeopleTextedListActivity : AppCompatActivity() {
                                         it.unreadMessagesCount = unreadCount
                                         Log.d("PeopleTextedListActivity", "User ${it.id} has $unreadCount unread messages")
 
+                                        if(currentUserId!=it.id)
                                         userList.add(it)
                                         userAdapter.notifyDataSetChanged()
                                     }

@@ -8,6 +8,7 @@ import android.os.PersistableBundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -22,6 +23,7 @@ class PeopleThisTimeActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var userAdapter: UserAdapter
     private var userList : MutableList<User> = mutableListOf()
+    val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +73,14 @@ class PeopleThisTimeActivity : AppCompatActivity() {
                     for(userSnapshot in snapshot.children) {
                         val user = userSnapshot.getValue(User::class.java)
                         user?.let {
-                            if(it.date==dateToday)
+                            if(it.date==dateToday && currentUserId!=it.id)
                             userList.add(it)
+                            else if(it.date==dateToday && currentUserId==it.id){
+                                it.userName = it.userName+"(You)"
+                                userList.add(it)
+                            } else {
+
+                            }
                         }
                     }
                     userAdapter.notifyDataSetChanged()
