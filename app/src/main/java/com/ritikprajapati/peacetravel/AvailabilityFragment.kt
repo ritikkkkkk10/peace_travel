@@ -1,19 +1,25 @@
 package com.ritikprajapati.peacetravel
 
+import UserAdapter
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import com.ritikprajapati.peacetravel.databinding.FragmentAvailabilityBinding
 import com.ritikprajapati.peacetravel.databinding.FragmentRequirementBinding
+import java.util.Calendar
 
 class AvailabilityFragment : Fragment() {
 
     private lateinit var binding: FragmentAvailabilityBinding
+    private lateinit var userAdapter: UserAdapter
+    private var userList: MutableList<User> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,21 +27,6 @@ class AvailabilityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAvailabilityBinding.inflate(inflater, container, false)
-
-        //binding.cardViewPlaceFilter.setOnClickListener { startActivity(Intent(context, ChatListActivity::class.java)) }
-
-//        binding.cardViewConnect.setOnClickListener {
-//            AlertDialog.Builder(requireContext())
-//                .setTitle("Confirmation!")
-//                .setMessage("You will be directed to linkedIn")
-//                .setPositiveButton("Confirm") { _, _ ->
-//                    openLinkedIn()
-//                }
-//                .setNegativeButton("Stay") {dialog, _ ->
-//                    dialog.dismiss()
-//                }
-//                .show()
-//        }
 
         binding.cardViewBuy.setOnClickListener { startActivity(Intent(context, ViewRentActivity::class.java)) }
 
@@ -48,6 +39,12 @@ class AvailabilityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)+1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val currentDate2 = "$year-$month-$day"
     }
 
     private fun openLinkedIn() {
@@ -62,6 +59,11 @@ class AvailabilityFragment : Fragment() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkedinUrl))
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("AvailabilityFragment", "in the am availability")
     }
 
 }
