@@ -1,14 +1,19 @@
 package com.ritikprajapati.peacetravel
 
 import UserAdapter
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ritikprajapati.peacetravel.databinding.ActivityPeopleTextedListBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
 class PeopleTextedListActivity : AppCompatActivity() {
@@ -19,6 +24,7 @@ class PeopleTextedListActivity : AppCompatActivity() {
     private var userList : MutableList<User> = mutableListOf()
     private lateinit var chatRooms: DatabaseReference
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPeopleTextedListBinding.inflate(layoutInflater)
@@ -40,6 +46,7 @@ class PeopleTextedListActivity : AppCompatActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         val currentDate2 = "$year-$month-$day"
+
 
         Log.d("PeopleTextedListActivity", "Fetching data from Firebase")
     }
@@ -69,6 +76,8 @@ class PeopleTextedListActivity : AppCompatActivity() {
                             val chatRoomId = generateChatRoomId(currentUserId, it.id)
 
                             chatRooms.child(chatRoomId).addListenerForSingleValueEvent(object : ValueEventListener {
+                                @SuppressLint("SuspiciousIndentation")
+                                @RequiresApi(Build.VERSION_CODES.O)
                                 override fun onDataChange(chatSnapshot: DataSnapshot) {
                                     if (chatSnapshot.exists()) {
                                         var unreadCount = 0
@@ -86,7 +95,12 @@ class PeopleTextedListActivity : AppCompatActivity() {
                                         it.unreadMessagesCount = unreadCount
                                         Log.d("PeopleTextedListActivity", "User ${it.id} has $unreadCount unread messages")
 
-                                        if(currentUserId!=it.id)
+                                        val now = LocalDateTime.now()
+                                        val formatter = DateTimeFormatter.ofPattern("HH")
+                                        val formattedHour = now.format(formatter)
+                                        println(formattedHour) // Prints the current hour formatted as two digits, e.g., "01", "14"
+
+                                        if(currentUserId!=it.id && formattedHour<it.time.substring(6,8))
                                         userList.add(it)
                                         userAdapter.notifyDataSetChanged()
                                     }
