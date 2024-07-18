@@ -70,6 +70,24 @@
 <!--            android:src="@drawable/baseline_location_on_24"/>-->
 
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/unreadCard"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp">
+
+            <TextView
+                android:id="@+id/unreadChatsNotif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="16dp"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:layout_width="wrap_content"
