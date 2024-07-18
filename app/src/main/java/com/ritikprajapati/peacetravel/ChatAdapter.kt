@@ -3,8 +3,10 @@ package com.ritikprajapati.peacetravel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 
 class ChatAdapter(private val messageList: List<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -46,9 +48,17 @@ class ChatAdapter(private val messageList: List<Message>) : RecyclerView.Adapter
 
     inner class SentMessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val sentMessageTextView: TextView = itemView.findViewById(R.id.text_view_sent_message)
+        private val readTickImageView: ImageView = itemView.findViewById(R.id.readTick)
 
         fun bind(message: Message) {
             sentMessageTextView.text = message.content
+            val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid
+            if (message.senderUid == currentUserUid && message.SeenByMe) {
+                readTickImageView.setImageResource(R.drawable.tick_icon) // Set your tick icon here
+                readTickImageView.visibility = View.VISIBLE
+            } else {
+                readTickImageView.visibility = View.GONE
+            }
         }
     }
 

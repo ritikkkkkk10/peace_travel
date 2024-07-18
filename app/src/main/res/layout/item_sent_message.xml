@@ -15,4 +15,10 @@
         android:padding="10dp"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/readTick"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
