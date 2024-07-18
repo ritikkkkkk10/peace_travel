@@ -123,6 +123,7 @@ class AvailabilityFragment : Fragment() {
                                             newChats++
                                         }
                                         Log.e("AvailabilityFragment", "no of new chats: ${newChats}")
+                                        binding.unreadChatsNotif.text = newChats.toString()
                                     }
                                 }
 
