@@ -53,6 +53,7 @@ class AvailabilityFragment : Fragment() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val calendar = Calendar.getInstance()
@@ -61,6 +62,8 @@ class AvailabilityFragment : Fragment() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         val currentDate2 = "$year-$month-$day"
+
+        // Prints the current hour formatted as two digits, e.g., "01", "14"
 
         fetchUsers(currentDate2)
     }
@@ -79,8 +82,13 @@ class AvailabilityFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun fetchUsers(dateToday: String) {
         Log.d("PeopleTextedListActivity", "Fetching users for today's date: $dateToday")
+        val now = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH")
+        val formattedHour = now.format(formatter)
+        println(formattedHour)
 
         val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
         var newChats=0
@@ -100,7 +108,7 @@ class AvailabilityFragment : Fragment() {
                     val user = userSnapshot.getValue(User::class.java)
                     //change1
                     user?.let {
-                        if (it.date == dateToday) {
+                        if (it.date == dateToday && it.time.substring(6,8) > formattedHour) {
                             val chatRoomId = generateChatRoomId(currentUserId, it.id)
 
                             chatRooms.child(chatRoomId).addListenerForSingleValueEvent(object :
