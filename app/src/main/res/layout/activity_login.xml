@@ -45,4 +45,12 @@
         android:layout_height="wrap_content"
         android:text="Login"/>
 
+    <!-- Add this to your activity_login.xml layout -->
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/button_forgot_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?" />
+
 </LinearLayout>

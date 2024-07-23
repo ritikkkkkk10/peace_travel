@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -64,9 +65,14 @@ class UserAdapter (
 
 
         override fun onClick(v: View?) {
-            val user = userList[adapterPosition]
-            val chatRoomId = generateChatRoomId(user.id, userIdphone)
-            fetchUserNameAndStartChatActivity(user.id, chatRoomId)
+            if (isCheckVariableTrue()) {
+                val user = userList[adapterPosition]
+                val chatRoomId = generateChatRoomId(user.id, userIdphone)
+                fetchUserNameAndStartChatActivity(user.id, chatRoomId)
+            } else {
+                Snackbar.make(v ?: return, "Please enter your data first!", Snackbar.LENGTH_LONG)
+                    .show()
+            }
         }
 
         private fun fetchUserNameAndStartChatActivity(userId: String, chatRoomId: String) {
@@ -100,6 +106,13 @@ class UserAdapter (
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_user , parent, false)
         return UserViewHolder(itemView)
+    }
+
+    private fun isCheckVariableTrue(): Boolean {
+        val sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val f = sharedPref.getString("check_variable","false")
+        Log.e("MMMMMMMMMM","$f")
+        return sharedPref.getString("check_variable", "false") == "true"
     }
     private fun getUidFromSharedPreferences(): String? {
         val sharedPref = context?.getSharedPreferences("MyPrefs", -Context.MODE_PRIVATE)

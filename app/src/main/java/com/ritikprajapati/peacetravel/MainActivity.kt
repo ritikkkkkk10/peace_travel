@@ -22,6 +22,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 import com.ritikprajapati.peacetravel.databinding.ActivityMainBinding
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
             .show()
         true
+
+        // Call this function at the start of your activity or whenever needed
+        fun initialize() {
+            checkAndUpdateVariable()
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -195,6 +203,8 @@ class MainActivity : AppCompatActivity() {
                 for (snapshot in dataSnapshot.children) {
                     snapshot.ref.removeValue().addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            val currentDate = getCurrentDateString()
+                            saveToSharedPreferences(false, currentDate)
                             Snackbar.make(
                                 binding.root,
                                 "Data deleted successfully",
@@ -249,4 +259,34 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         return sharedPref.getString("UID", null)
     }
+
+    // Function to save flag and date to SharedPreferences
+    private fun saveToSharedPreferences(flag: Boolean, date: String) {
+        val sharedPref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        with(sharedPref?.edit()) {
+            this?.putString("check_variable", flag.toString())
+            this?.putString("lastDate", date)
+            this?.apply()
+        }
+    }
+
+    // Function to get the current date as a string
+    private fun getCurrentDateString(): String {
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        return sdf.format(Date())
+    }
+
+    // Function to check and reset the variable if the date has changed
+    private fun checkAndUpdateVariable() {
+        val sharedPref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val lastDate = sharedPref.getString("lastDate", getCurrentDateString())
+        val currentDate = getCurrentDateString()
+
+        if (currentDate != lastDate) {
+            // Date has changed, so reset the variable
+            saveToSharedPreferences(false, currentDate)
+        }
+    }
+
+
 }

@@ -93,6 +93,7 @@ class RequirementFragment : Fragment() {
                                 .setDuration(5000)
                                 .show()
                         } else {
+                            updateCheckVariable(true) // Set the check variable to true
                             saveDataToFirebase()
                         }
                     }
@@ -239,6 +240,14 @@ class RequirementFragment : Fragment() {
         val endHour = endHourString.toInt() + 1
 
         return formattedHour < endHour
+    }
+
+    private fun updateCheckVariable(flag: Boolean) {
+        val sharedPref = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        with(sharedPref?.edit()) {
+            this?.putString("check_variable", flag.toString())
+            this?.apply()
+        }
     }
 
 

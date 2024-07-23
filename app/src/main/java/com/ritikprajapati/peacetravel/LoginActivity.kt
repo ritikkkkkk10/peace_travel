@@ -43,6 +43,10 @@ class LoginActivity : AppCompatActivity() {
                 loginUser(emailText, passwordText)
             }
         }
+
+        findViewById<Button>(R.id.button_forgot_password).setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
     }
 
     private fun hideKeyboard() {
