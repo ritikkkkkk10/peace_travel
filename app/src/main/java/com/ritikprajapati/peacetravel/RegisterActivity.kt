@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -36,6 +37,9 @@ class RegisterActivity : AppCompatActivity() {
         val txt_password = password
         val txt_phone = phone
         registerButton?.setOnClickListener(View.OnClickListener {
+
+            hideKeyboard()
+
             val emailText = txt_email?.text.toString()
             val passwordText = txt_password?.text.toString()
             val phoneText = txt_phone?.text.toString();
@@ -105,5 +109,13 @@ class RegisterActivity : AppCompatActivity() {
         val editor = sharedPref.edit()
         editor.putString("UID", uid)
         editor.apply()
+    }
+
+    private fun hideKeyboard() {
+        val view = currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }

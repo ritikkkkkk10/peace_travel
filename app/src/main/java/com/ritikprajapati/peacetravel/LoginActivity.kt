@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 val view = currentFocus ?: findViewById<View>(android.R.id.content)
                 Snackbar.make(view, "Please enter both email and password", Snackbar.LENGTH_LONG).show()
             } else {
+                hideKeyboard()
                 loginUser(emailText, passwordText)
             }
         }
@@ -100,4 +101,5 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("UID", uid)
         editor.apply()
     }
+
 }

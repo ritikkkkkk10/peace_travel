@@ -34,19 +34,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        AlertDialog.Builder(this)
-            .setTitle("Note!")
-            .setMessage("Before texting anyone, enter your data as well, else the other user won't be able to see your text!")
-            .setNegativeButton("Okay") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-        true
 
         // Call this function at the start of your activity or whenever needed
-        fun initialize() {
             checkAndUpdateVariable()
-        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
